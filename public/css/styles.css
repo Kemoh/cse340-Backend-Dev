@@ -4,3 +4,363 @@
 *:after {
   box-sizing: border-box;
 }
+
+/* Headings */
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+  color: #E10600;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+/* Body */
+body {
+  font-family: 'Oxygen', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+}
+
+/* ===============================
+   HEADER CONTAINER
+================================ */
+#top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0A1F44;
+  padding: 15px 10px;
+  color: #FFFFFF;
+}
+
+/* Site name styling */
+.siteName a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #E10600;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.siteName a:hover {
+  color: #C0C0C0;
+}
+
+/* Tools (My Account link) */
+#tools a {
+  font-family: 'Oxygen', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #FFFFFF;
+  text-decoration: none;
+  background-color: #E10600;
+  padding: 8px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+#tools a:hover {
+  background-color: #C0C0C0;
+  color: #0A1F44;
+}
+
+/* ===============================
+   NAVIGATION CONTAINER
+================================ */
+nav {
+  background-color: #0A1F44;
+  padding: 15px 10px;
+  border-top: 1px solid #adff2f;
+}
+
+/* Navigation list */
+nav ul {
+  list-style: none;
+  margin-top: 1rem;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Navigation items */
+nav ul li {
+  font-family: 'Oxygen', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+/* Hover effect */
+nav ul li:hover {
+  color: #E10600; /* Racing Red */
+  border-bottom: 2px solid #E10600;
+}
+
+/* Active/selected item */
+nav ul li.active {
+  color: #E10600;
+  border-bottom: 2px solid #E10600;
+}
+
+/* Main section/ body */
+main {
+  padding: 0 10px;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+
+/* ===============================
+   HERO SECTION
+================================ */
+.hero {
+  position: relative;
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+.hero-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #4682b4;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 42%;
+  height: auto;
+}
+
+.hero-content h2 {
+  font-size: 16px;
+  color: #4682b4;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+}
+
+.hero-content img {
+  width: 70%;
+  height: auto;
+}
+
+.hero-content ul {
+  margin: -1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-content li {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+
+/* ===============================
+   REVIEW SECTION
+================================ */
+.reviews li {
+  font-size: 1rem;
+}
+
+
+/* ===============================
+   UPGRADE SECTION
+================================ */
+.upgrades h3 {
+  padding-top: 1rem;
+}
+
+.upgrade-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.upgrade-item {
+  background-color: #4682b4;
+  text-align: center;
+  margin: 0 0.2rem 1rem;
+  border: none;
+}
+
+.upgrade-item img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.upgrade-item figcaption {
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #ffffff;
+}
+
+
+/* ===============================
+   FOOTER SECTION
+================================ */
+footer {
+  padding: 10px;
+  color: #FFFFFF;
+  background-color: #0A1F44;
+}
+
+
+/* ===============================
+   TABLET DEVICES
+================================ */
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 2.25rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  /* Site name styling */
+  .siteName a {
+    font-size: 1.75rem;
+  }
+
+  nav ul li {
+    font-size: 1.2rem;
+  }
+
+   /* Hero */
+  .hero {
+    padding-left: 8rem;
+  }
+
+  .hero-img {
+    max-width: 500px;
+  }
+
+  .hero-content {
+    top: 12%;
+    left: 12%;
+    width: 25%;
+    height: auto;
+  }
+
+  .hero-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-content li {
+    font-size: 1rem;
+  }
+
+  .hero-cta-img {
+    width: 110px;
+    height: 45px;
+    margin-top: 1rem;
+  }
+
+  /* Upgrades */
+  .review-upgrade-cont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+  }
+  
+  .upgrades {
+    grid-column: 1/2;
+    grid-row: 1;
+  }
+
+  /* Reviews */
+  .reviews {
+    grid-column: 2/3;
+    grid-row: 1;
+    padding-top: 1rem;
+  }
+    
+  .reviews h3 {
+    padding-left: 1.5rem;
+  }
+
+  .reviews li {
+    margin-bottom: 1.6rem;
+  }
+  
+  /* Main/body */
+  body {
+    border: 3px solid cornflowerblue;
+    border-radius: 8px;
+  }
+}
+
+/* ===============================
+   LAPTOP @1024PX
+================================ */
+@media screen and (min-width: 1024px) {
+/* Reviews */
+    .reviews {
+      padding-left: 2rem;
+  }
+}
+
+
+/* ===============================
+   LAPTOP @1440PX
+================================ */
+@media screen and (min-width: 1440px){
+    h1 {
+    font-size: 2.5rem;
+  }
+
+   h3 {
+    font-size: 1.75rem;
+  }
+
+  /* Site name styling */
+  .siteName a {
+    font-size: 2rem;
+  }
+
+  /* Hero */
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+
+  .hero-content li {
+    font-size: 1.5rem;
+  }
+
+  /* Upgrades */
+  .upgrade-item {
+    margin-right: 1rem;
+  }
+
+  .upgrade-item figcaption {
+    font-size: 1.2rem;
+  }
+
+  /* Reviews */
+  .reviews li {
+    font-size: 1.2rem;
+  }
+}
