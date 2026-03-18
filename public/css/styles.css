@@ -21,9 +21,12 @@ body {
   background-color: #FFFFFF;
 }
 
+
 /* ===============================
-   HEADER CONTAINER
+   Start Home View
 ================================ */
+
+/* Header container */
 #top-header {
   display: flex;
   justify-content: space-between;
@@ -65,9 +68,7 @@ body {
   color: #0A1F44;
 }
 
-/* ===============================
-   NAVIGATION CONTAINER
-================================ */
+/* Navigation Container */
 nav {
   background-color: #0A1F44;
   padding: 15px 10px;
@@ -85,18 +86,19 @@ nav ul {
 }
 
 /* Navigation items */
-nav ul li {
+nav ul li a {
   font-family: 'Oxygen', sans-serif;
   font-weight: 500;
   font-size: 1rem;
   color: #FFFFFF;
   cursor: pointer;
+  text-decoration: none;
   transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
 /* Hover effect */
-nav ul li:hover {
-  color: #E10600; /* Racing Red */
+nav ul li a:hover {
+  color: #E10600; 
   border-bottom: 2px solid #E10600;
 }
 
@@ -124,9 +126,7 @@ h3 {
 }
 
 
-/* ===============================
-   HERO SECTION
-================================ */
+/* Hero section */
 .hero {
   position: relative;
   width: 100%;
@@ -171,18 +171,12 @@ h3 {
 }
 
 
-
-/* ===============================
-   REVIEW SECTION
-================================ */
+/* Review section */
 .reviews li {
   font-size: 1rem;
 }
 
-
-/* ===============================
-   UPGRADE SECTION
-================================ */
+/* Upgrade section */
 .upgrades h3 {
   padding-top: 1rem;
 }
@@ -213,21 +207,89 @@ h3 {
   background-color: #ffffff;
 }
 
-
-/* ===============================
-   FOOTER SECTION
-================================ */
+/* Footer section */
 footer {
   padding: 10px;
   color: #FFFFFF;
   background-color: #0A1F44;
 }
+/* ===============================
+   End Home View
+================================ */
+
+
+/* ===============================
+   Start Classification View
+================================ */
+#inv-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.vehicle-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.vehicle-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.namePrice {
+  padding: 0.8rem;
+}
+
+.namePrice h2 {
+  font-size: 1.1rem;
+  /* margin: 0.5rem 0; */
+}
+
+.namePrice hr {
+  border: none;
+  height: 2px;
+  background-color: #008000;;
+}
+
+.namePrice a {
+  text-decoration: none;
+  color: #333;
+}
+
+.namePrice a:hover {
+  color: #E10600; 
+  border-bottom: 2px solid #E10600;
+}
+
+.price {
+  display: block;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.notice {
+  text-align: center;
+  font-size: 1.2rem;
+  color: red;
+}
+
+/* ===============================
+   End Classification View
+================================ */
 
 
 /* ===============================
    TABLET DEVICES
 ================================ */
 @media screen and (min-width: 768px) {
+  /* Start Home View */
   h1 {
     font-size: 2rem;
   }
@@ -311,23 +373,28 @@ footer {
     border: 3px solid cornflowerblue;
     border-radius: 8px;
   }
+  /* End Home View */
 }
 
 /* ===============================
    LAPTOP @1024PX
 ================================ */
 @media screen and (min-width: 1024px) {
+/* Start Home view */
+
 /* Reviews */
     .reviews {
       padding-left: 2rem;
   }
 }
+/* End Home view */
 
 
 /* ===============================
    LAPTOP @1440PX
 ================================ */
 @media screen and (min-width: 1440px){
+  /* Start Home view */
     h1 {
     font-size: 2.5rem;
   }
@@ -364,3 +431,4 @@ footer {
     font-size: 1.2rem;
   }
 }
+/* End Home view */
