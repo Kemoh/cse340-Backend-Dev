@@ -4,7 +4,7 @@ const utilities = require("../utilities/")
 const invCont = {}
 
 /* ***************************
- *  Build inventory by classification view
+ *  Build vehicle classification view
  * ************************** */
 invCont.buildByClassificationId = async function (req, res, next) {
   const classification_id = req.params.classificationId
@@ -17,6 +17,33 @@ invCont.buildByClassificationId = async function (req, res, next) {
     nav,
     grid,
   })
+}
+
+
+/* ***************************
+ *  Build vehicle detail view
+ * ************************** */
+invCont.buildByInventoryId = async function (req, res, next) {
+  const inventory_id = req.params.inventoryId
+  const data = await invModel.getDetailByInventoryId(inventory_id)
+  const grid = await utilities.buildDetailGrid(data)
+  const nav = await utilities.getNav()
+  const className = `${data.inv_year}
+                     ${data.inv_make}
+                     ${data.inv_model}`
+  res.render("./inventory/detail", {
+    title: className,
+    nav,
+    grid
+  })
+}
+
+/* *********************************
+* Build intentional error  view
+************************************ */
+invCont.throwIntentionalError = async function (req, res, next) {
+    // Simulates a 500 error
+    throw new Error("Intentional 500 error")  
 }
 
 module.exports = invCont

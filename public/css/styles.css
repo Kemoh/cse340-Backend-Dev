@@ -213,6 +213,10 @@ footer {
   color: #FFFFFF;
   background-color: #0A1F44;
 }
+
+footer a {
+  color: #FFFFFF;
+}
 /* ===============================
    End Home View
 ================================ */
@@ -279,9 +283,67 @@ footer {
   font-size: 1.2rem;
   color: red;
 }
-
 /* ===============================
    End Classification View
+================================ */
+
+/* ===============================
+  Start Error View
+================================ */
+.error {
+  margin-bottom: 1rem;
+}
+/* ===============================
+   End Error View
+================================ */
+
+/* ===============================
+  Start Details View
+================================ */
+.vehicle-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: auto;
+}
+
+.vehicle-image {
+  flex: 1 1 40%;
+  max-width: 350px;
+  border-radius: 12px; 
+}
+
+.vehicle-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.vehicle-info {
+  flex: 1 1 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 1rem;
+}
+
+.vehicle-info p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.price, .color {
+  font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+  background-color: #f9f9f9;
+  padding: 1rem;
+}
+
+.description, .mileage {
+  padding-left: 1rem;
+  font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+}
+/* ===============================
+  End Details View
 ================================ */
 
 
@@ -291,11 +353,11 @@ footer {
 @media screen and (min-width: 768px) {
   /* Start Home View */
   h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   h2 {
-    font-size: 2.25rem;
+    font-size: 1.6rem;
   }
 
   h3 {
@@ -373,7 +435,6 @@ footer {
     border: 3px solid cornflowerblue;
     border-radius: 8px;
   }
-  /* End Home View */
 }
 
 /* ===============================
@@ -387,19 +448,20 @@ footer {
       padding-left: 2rem;
   }
 }
-/* End Home view */
-
-
 /* ===============================
    LAPTOP @1440PX
 ================================ */
 @media screen and (min-width: 1440px){
   /* Start Home view */
-    h1 {
+  h1 {
     font-size: 2.5rem;
   }
 
-   h3 {
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
     font-size: 1.75rem;
   }
 
@@ -430,5 +492,9 @@ footer {
   .reviews li {
     font-size: 1.2rem;
   }
+
+   /* Details */
+   .vehicle-info p {
+  font-size: 1.2rem;
 }
-/* End Home view */
+}
