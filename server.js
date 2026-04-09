@@ -1,18 +1,58 @@
 /* ****************************************
- * This server.js file is the primary file of the application. It is used to control the project.
+ * This server.js file is the primary file of the application. It controls the project.
  ****************************************/
 
-/* ***********************
- * Require Statements
- *************************/
+/* ********************************
+ * Require Statements for Packages
+ **********************************/
 const express = require("express")
 const expressLayouts = require("express-ejs-layouts")
-const env = require("dotenv").config()
+require("dotenv").config()
 const app = express()
-const inventoryRoute = require("./routes/inventoryRoute")
+// const bodyParser = require("body-parser")
+// const session = require("express-session")
+
+/* ********************************
+ * Require Statements for files
+ **********************************/
+// Static Route
 const static = require("./routes/static")
-const baseController = require("./controllers/baseController")
-const utilities = require("./utilities/")
+
+// const inventoryRoute = require("./routes/inventoryRoute")
+// const baseController = require("./controllers/baseController")
+// const utilities = require("./utilities/")
+// const accountRoute = require("./routes/accountRoute")
+
+// const pool = require('./database/')
+
+
+/* ***********************
+ * Middleware
+ * ************************/
+//  app.use(session({
+//   store: new (require('connect-pg-simple')(session))({
+//     createTableIfMissing: true,
+//     pool,
+//   }),
+//   secret: process.env.SESSION_SECRET,
+//   resave: true,
+//   saveUninitialized: true,
+//   name: 'sessionId',
+// }))
+
+
+// Express Messages Middleware
+// app.use(require('connect-flash')())
+// app.use(function(req, res, next){
+//   res.locals.messages = require('express-messages')(req, res)
+//   next()
+// })
+
+
+// Process Registration
+// app.use(bodyParser.json())
+// app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
 
 /* ***********************
  * View Engine and Templates
@@ -27,16 +67,44 @@ app.set("layout", "./layouts/layout")
 // Static route
 app.use(static)
 
-// Index route
-app.get("/", utilities.handleErrors(baseController.buildHome))
+// Index Route
+app.get("/", function (req, res) {
+  res.render("index", {title: "Home"})
+})
 
 // Inventory route
-app.use("/inv", utilities.handleErrors(inventoryRoute))
+// app.use("/inv", inventoryRoute) 
+
+// Account routes
+// app.use("/account", accountRoute)
+
 
 // File Not Found Route - must be last route in list
-app.use(async (req, res, next) => {
-  next({status: 404, message: 'Sorry, we appear to have lost that page.'})
-})
+// app.use(async (req, res, next) => {
+//   next({ status: 404, message: "Sorry, we appear to have lost that page." })
+// })
+
+
+/* ***********************
+ * Express Error Handler
+ * Place after all other middleware
+ *************************/
+// app.use(async (err, req, res, next) => {
+//   let nav = await utilities.getNav()
+//   console.error(`Error at: "${req.originalUrl}": ${err.message}`)
+
+//   if (err.status == 404) {
+//     message = err.message
+//   } else {
+//     message = "Oh no! There was a crash. Maybe try a different route?"
+//   }
+
+//   res.render("errors/error", {
+//     title: err.status || "Server Error",
+//     message,
+//     nav
+//   })
+// })
 
 /* ***********************
  * Local Server Information
@@ -45,29 +113,10 @@ app.use(async (req, res, next) => {
 const port = process.env.PORT
 const host = process.env.HOST
 
-/* ***********************
-* Express Error Handler
-* Place after all other middleware
-*************************/
-app.use(async (err, req, res, next) => {
-  let nav = await utilities.getNav()
-  console.error(`Error at: "${req.originalUrl}": ${err.message}`)
-  if(err.status == 404) { 
-    message = err.message
-  } else {
-    message = 'Oh no! There was a crash. Maybe try a different route?'
-  }
-  res.render("errors/error", {
-    title: err.status || 'Server Error',
-    message,
-    nav
-  })
-})
-
 
 /* ***********************
  * Log statement to confirm server operation
  *************************/
 app.listen(port, () => {
-  console.log(`app listening on ${host}:${port}`)
+  console.log(`App listening on ${host}:${port}`)
 })
