@@ -28,12 +28,13 @@ SET inv_description = REPLACE(inv_description,
 							  )
 WHERE inv_id = 10;
 
--- 5. The select query using a JOIN SQL statement
-SELECT inv_id, inv_make, inv_model, classification_name
-FROM public.inventory AS i
-INNER JOIN public.classification AS c
-ON i.classification_id = c.classification_id
-WHERE i.classification_id = 2;
+
+-- 5. Inventory Items in the Sport Classification (Using INNER JOIN)
+SELECT inv_make, inv_model, classification_name
+FROM public.inventory
+INNER JOIN public.classification
+ON public.inventory.classification_id = public.classification.classification_id
+WHERE classification_name = 'Sport';
 
 -- 6. The inv_image and inv_thumbnail update query
 UPDATE public.inventory
