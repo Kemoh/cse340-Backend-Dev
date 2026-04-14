@@ -86,7 +86,7 @@ nav ul {
 }
 
 /* Navigation items */
-nav ul li {
+nav ul li a {
   font-family: 'Oxygen', sans-serif;
   font-weight: 500;
   font-size: 1rem;
@@ -233,7 +233,7 @@ footer a {
   list-style: none;
 }
 
-.vehicle-card {
+#inv-display li {
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
@@ -241,7 +241,7 @@ footer a {
   text-align: center;
 }
 
-.vehicle-card img {
+#inv-display img {
   width: 100%;
   height: auto;
   display: block;
@@ -290,7 +290,7 @@ footer a {
 /* ===============================
   Start Error View
 ================================ */
-.error {
+.eror-message {
   margin-bottom: 1rem;
 }
 /* ===============================
@@ -298,7 +298,7 @@ footer a {
 ================================ */
 
 /* ===============================
-  Start Details View
+  Start Detail View
 ================================ */
 .vehicle-detail {
   display: flex;

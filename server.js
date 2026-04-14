@@ -18,9 +18,14 @@ const app = express()
 // Static Route
 const static = require("./routes/static")
 
-// const inventoryRoute = require("./routes/inventoryRoute")
-// const baseController = require("./controllers/baseController")
-// const utilities = require("./utilities/")
+// Index.js Route
+const baseController = require("./controllers/baseController")
+
+// InventoryRoute.js 
+const inventoryRoute = require("./routes/inventoryRoute")
+
+const utilities = require("./utilities/")
+
 // const accountRoute = require("./routes/accountRoute")
 
 // const pool = require('./database/')
@@ -64,47 +69,44 @@ app.set("layout", "./layouts/layout")
 /* ***********************
  * Routes
  *************************/
-// Static route
+// Static Route
 app.use(static)
 
-// Index Route
-app.get("/", function (req, res) {
-  res.render("index", {title: "Home"})
-})
+// GET the Index Route and call the method to build the index view from controllers > baseController.js file
+app.get("/", utilities.handleErrors(baseController.buildHome))
 
-// Inventory route
-// app.use("/inv", inventoryRoute) 
+
+// Use the keyword "/inv" and call the route > inventoryRoute.js file 
+app.use("/inv", inventoryRoute) 
 
 // Account routes
 // app.use("/account", accountRoute)
 
 
-// File Not Found Route - must be last route in list
-// app.use(async (req, res, next) => {
-//   next({ status: 404, message: "Sorry, we appear to have lost that page." })
-// })
+// 404 - File Not Found Route - must be last route in list
+app.use(async (req, res, next) => {
+  next({status: 404, message: 'Sorry, we appear to have lost that page.'})
+})
 
 
 /* ***********************
- * Express Error Handler
- * Place after all other middleware
- *************************/
-// app.use(async (err, req, res, next) => {
-//   let nav = await utilities.getNav()
-//   console.error(`Error at: "${req.originalUrl}": ${err.message}`)
-
-//   if (err.status == 404) {
-//     message = err.message
-//   } else {
-//     message = "Oh no! There was a crash. Maybe try a different route?"
-//   }
-
-//   res.render("errors/error", {
-//     title: err.status || "Server Error",
-//     message,
-//     nav
-//   })
-// })
+* Express Error Handler
+* Place after all other middleware
+*************************/
+app.use(async (err, req, res, next) => {
+  let nav = await utilities.getNav()
+  console.error(`Error at: "${req.originalUrl}": ${err.message}`)
+  if(err.status == 404){ 
+    message = err.message
+  } else {
+    message = 'Oh no! There was a crash. Maybe try a different route?'
+  }
+  res.render("errors/error", {
+    title: err.status || 'Server Error',
+    message,
+    nav
+  })
+})
 
 /* ***********************
  * Local Server Information
